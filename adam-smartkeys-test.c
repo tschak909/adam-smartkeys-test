@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <msx.h>
 #include <graphics.h>
+#include <conio.h>
+#include "font.h"
 
-#define SMARTKEYS_ATTR(x) (MODE2_ATTR + 5120 + (x << 8)) // Beginning of line (x) for attribute memory
+#define SMARTKEYS_ATTR(x) (MODE2_ATTR + 5376 + (x << 8)) // Beginning of line (x) for attribute memory
 
 #define SMARTKEYS_KEY_ATTR         0xF1 // White on black
 #define SMARTKEYS_LEGEND_ATTR_ODD  0xF5 // White on light blue
@@ -16,144 +18,154 @@
 #define SMARTKEYS_ATTR_POS_V      168   // Smartkey attr position 5
 #define SMARTKEYS_ATTR_POS_VI     208   // Smartkey attr position 6
 
+void smartkeys_text(void)
+{
+  msx_color(15,4,7);
+  gotoxy(27,22);
+  cprintf("BOOT");
+  msx_color(15,5,7);
+  gotoxy(1,22);
+  cprintf("SETUP");
+}
+
 void smartkeys_caps(void)
 {
   /* Draw the keycaps one pixel at a time. */
   /* Yes, this routine is insane, it will be rewritten. */
   msx_color(15,1,7);
-
+  
   /* I */
-  pset(27,160);
-  pset(28,160);
-  pset(29,160);
-  pset(28,161);
-  pset(28,162);
-  pset(28,163);
-  pset(28,164);
-  pset(28,165);
-  pset(28,166);
-  pset(27,166);
-  pset(29,166);
+  pset(27,168);
+  pset(28,168);
+  pset(29,168);
+  pset(28,169);
+  pset(28,170);
+  pset(28,171);
+  pset(28,172);
+  pset(28,173);
+  pset(28,174);
+  pset(27,174);
+  pset(29,174);
 
   /* II */
-  pset(66,160);
-  pset(67,160);
-  pset(68,160);
-  pset(69,160);
-  pset(70,160);
-  pset(67,161);
-  pset(69,161);
-  pset(67,162);
-  pset(69,162);
-  pset(67,163);
-  pset(69,163);
-  pset(67,164);
-  pset(69,164);
-  pset(67,165);
-  pset(69,165);
-  pset(66,166);
-  pset(67,166);
-  pset(68,166);
-  pset(69,166);
-  pset(70,166);
+  pset(66,168);
+  pset(67,168);
+  pset(68,168);
+  pset(69,168);
+  pset(70,168);
+  pset(67,169);
+  pset(69,169);
+  pset(67,170);
+  pset(69,170);
+  pset(67,171);
+  pset(69,171);
+  pset(67,172);
+  pset(69,172);
+  pset(67,173);
+  pset(69,173);
+  pset(66,174);
+  pset(67,174);
+  pset(68,174);
+  pset(69,174);
+  pset(70,174);
 
   /* III */
-  pset(104,160);
-  pset(105,160);
-  pset(106,160);
-  pset(107,160);
-  pset(108,160);
-  pset(109,160);
-  pset(110,160);
-  pset(105,161);
-  pset(107,161);
-  pset(109,161);
-  pset(105,162);
-  pset(107,162);
-  pset(109,162);
-  pset(105,163);
-  pset(107,163);
-  pset(109,163);
-  pset(105,164);
-  pset(107,164);
-  pset(109,164);
-  pset(105,165);
-  pset(107,165);
-  pset(109,165);
-  pset(104,166);
-  pset(105,166);
-  pset(106,166);
-  pset(107,166);
-  pset(108,166);
-  pset(109,166);
-  pset(110,166);
+  pset(104,168);
+  pset(105,168);
+  pset(106,168);
+  pset(107,168);
+  pset(108,168);
+  pset(109,168);
+  pset(110,168);
+  pset(105,169);
+  pset(107,169);
+  pset(109,169);
+  pset(105,170);
+  pset(107,170);
+  pset(109,170);
+  pset(105,171);
+  pset(107,171);
+  pset(109,171);
+  pset(105,172);
+  pset(107,172);
+  pset(109,172);
+  pset(105,173);
+  pset(107,173);
+  pset(109,173);
+  pset(104,174);
+  pset(105,174);
+  pset(106,174);
+  pset(107,174);
+  pset(108,174);
+  pset(109,174);
+  pset(110,174);
 
   /* IV */
-  pset(144,160);
-  pset(145,160);
-  pset(146,160);
-  pset(145,161);
-  pset(145,162);
-  pset(145,163);
-  pset(145,164);
-  pset(145,165);
-  pset(144,166);
-  pset(145,166);
-  pset(146,166);
-  pset(147,160);
-  pset(151,160);
-  pset(147,161);
-  pset(151,161);
-  pset(147,162);
-  pset(151,162);
-  pset(147,163);
-  pset(151,163);
-  pset(148,164);
-  pset(150,164);
-  pset(148,165);
-  pset(150,165);
-  pset(149,166);
+  pset(144,168);
+  pset(145,168);
+  pset(146,168);
+  pset(145,169);
+  pset(145,170);
+  pset(145,171);
+  pset(145,172);
+  pset(145,173);
+  pset(144,174);
+  pset(145,174);
+  pset(146,174);
+  pset(147,168);
+  pset(151,168);
+  pset(147,169);
+  pset(151,169);
+  pset(147,170);
+  pset(151,170);
+  pset(147,171);
+  pset(151,171);
+  pset(148,172);
+  pset(150,172);
+  pset(148,173);
+  pset(150,173);
+  pset(149,174);
 
   /* V */
-  pset(185,160);
-  pset(189,160);
-  pset(185,161);
-  pset(189,161);
-  pset(185,162);
-  pset(189,162);
-  pset(185,163);
-  pset(189,163);
-  pset(186,164);
-  pset(188,164);
-  pset(186,165);
-  pset(188,165);
-  pset(187,166);
+  pset(185,168);
+  pset(189,168);
+  pset(185,169);
+  pset(189,169);
+  pset(185,170);
+  pset(189,170);
+  pset(185,171);
+  pset(189,171);
+  pset(186,172);
+  pset(188,172);
+  pset(186,173);
+  pset(188,173);
+  pset(187,174);
 
   /* VI */
-  pset(229,160);
-  pset(230,160);
-  pset(231,160);
-  pset(230,161);
-  pset(230,162);
-  pset(230,163);
-  pset(230,164);
-  pset(230,165);
-  pset(229,166);
-  pset(230,166);
-  pset(231,166);  
-  pset(224,160);
-  pset(228,160);
-  pset(224,161);
-  pset(228,161);
-  pset(224,162);
-  pset(228,162);
-  pset(224,163);
-  pset(228,163);
-  pset(225,164);
-  pset(227,164);
-  pset(225,165);
-  pset(227,165);
-  pset(226,166);
+  pset(229,168);
+  pset(230,168);
+  pset(231,168);
+  pset(230,169);
+  pset(230,170);
+  pset(230,171);
+  pset(230,172);
+  pset(230,173);
+  pset(229,174);
+  pset(230,174);
+  pset(231,174);  
+  pset(224,168);
+  pset(228,168);
+  pset(224,169);
+  pset(228,169);
+  pset(224,170);
+  pset(228,170);
+  pset(224,171);
+  pset(228,171);
+  pset(225,172);
+  pset(227,172);
+  pset(225,173);
+  pset(227,173);
+  pset(226,174);
 }
 
 /**
@@ -221,7 +233,7 @@ void smartkeys_attrs(void)
   msx_vfill(SMARTKEYS_ATTR(0)+SMARTKEYS_ATTR_POS_III+8, SMARTKEYS_KEY_ATTR, 24);
   msx_vfill(SMARTKEYS_ATTR(0)+SMARTKEYS_ATTR_POS_IV+8, SMARTKEYS_KEY_ATTR, 24);
   msx_vfill(SMARTKEYS_ATTR(0)+SMARTKEYS_ATTR_POS_V+8, SMARTKEYS_KEY_ATTR, 24);
-  msx_vfill(SMARTKEYS_ATTR(0)+SMARTKEYS_ATTR_POS_VI+8, SMARTKEYS_KEY_ATTR, 24); 
+  msx_vfill(SMARTKEYS_ATTR(0)+SMARTKEYS_ATTR_POS_VI+8, SMARTKEYS_KEY_ATTR, 24);
 }
 
 void main(void)
@@ -229,12 +241,29 @@ void main(void)
   msx_color(1,7,7); // Set default SmartWriter like colors, black, cyan bkg, cyan border
   msx_set_mode(2); // Reset mode so that vram will be filled with background color
 
-  printf("ADAM Smartkeys\n");
-  printf("Render test.\n\n");
-  printf("Now to write a proportional\n");
-  printf("font draw routine.\n");
-  
+  cprintf("           HOST SLOTS           ");
+  cprintf(" 1| FUJINET.ONLINE\n");
+  cprintf(" 2| ADAM-APPS.IRATA.ONLINE\n");
+  cprintf(" 3| ATARIAGE.COM\n");
+  cprintf(" 4| <EMPTY>\n");
+  cprintf(" 5| <EMPTY>\n");
+  cprintf(" 6| <EMPTY>\n");
+  cprintf(" 7| <EMPTY>\n");
+  cprintf(" 8| <EMPTY>\n\n\n");
+  cprintf("          DEVICE SLOTS          ");
+  cprintf("D1: AdamCalc.ddp\n");
+  cprintf("D2: Financials.ddp\n");
+  cprintf("D3: Donkey Kong Jr.ddp\n");
+  cprintf("D4: <EMPTY>\n\n\n\n");
+  cprintf("  WELCOME TO #FUJINET FOR ADAM  ");
+
+  msx_vfill(MODE2_ATTR,0xF5,256);
+  msx_vfill(MODE2_ATTR+2816,0xF5,256);
+  msx_vfill(MODE2_ATTR+256,0x1F,2304);
+  msx_vfill(MODE2_ATTR+3072,0x1F,1792-256);
+  msx_vfill(MODE2_ATTR+256,0x1B,256);
   smartkeys_attrs();
   smartkeys_caps();
+  smartkeys_text();
   for (;;) { }
 }

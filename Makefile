@@ -1,4 +1,4 @@
-CC=zcc +coleco -pragma-redirect:CRT_FONT=_font_8x8_zx_system -subtype=adam
+CC=zcc +coleco -pragma-redirect:CRT_FONT=_font_8x8_msx_system -subtype=adam
 AS=z88dk-z80asm
 
 all: adam-smartkeys-test
